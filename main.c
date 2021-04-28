@@ -11,7 +11,7 @@ int main()
         printf("DEBUG info: BMP transformer\n");
     #endif
 
-    FILE* inputFilePointer = fopen(BMPINPUTFILE, "rb"); //maak een file pointer naar de afbeelding
+    FILE* inputFilePointer = fopen(BMPINPUTFILE, "rb"); //maak een file pointer naar de afbeelding "rb"= read bineary mode
     if(inputFilePointer == NULL) //Test of het open van de file gelukt is!
     {
         printf("Something went wrong while trying to open %s\n", BMPINPUTFILE);
@@ -44,10 +44,10 @@ int main()
     fclose(inputFilePointer);
 	for(int i =0; i < imageSize-2; i+=3)
 	{
-		printf("pixel %d: B= %d, G=%d, R=%d\n", i, inputPixels[i], inputPixels[i+1], inputPixels[i+2]);
+		printf("pixel %d: B= %d, G=%d, R=%d\n", i/3, inputPixels[i], inputPixels[i+1], inputPixels[i+2]);
 	}
    
-    fclose(inputFilePointer);
+    //fclose(inputFilePointer);
     free(inputPixels);
     
     return 0;
